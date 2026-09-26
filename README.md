@@ -12,7 +12,7 @@ Static site for [thresholdpaint.com](https://www.thresholdpaint.com). Plain HTML
 | `about.html` | About Garrett / credentials |
 | `the-paint-initiative.html` | Blog index |
 | `the-paint-initiative/*.html` | Individual blog posts |
-| `contact.html` | Contact + estimate form |
+| `contact.html` | Contact: call / email tiles, how to get a quote, service area, hours |
 | `404.html` | Not-found page (GitHub Pages serves this automatically) |
 
 Shared code lives in `assets/css/style.css` and `assets/js/main.js`. Project photos are in `images/gallery/` (full size) and `images/gallery/thumbs/` (720px, used in grids and sliders). Background photos on section headers are pulled from Unsplash at load time.
@@ -31,9 +31,9 @@ Shared code lives in `assets/css/style.css` and `assets/js/main.js`. Project pho
 
 All links in the site are relative, so it works at either the github.io URL or the custom domain.
 
-## Contact form (one-time setup)
+## Contact
 
-The estimate form posts to [FormSubmit](https://formsubmit.co), a free service that forwards submissions to `garrett@thresholdpaint.com`. The **first submission** triggers an activation email to that address. Click the link in it once and the form is live. Until then, or if the service is ever unreachable, the form falls back to opening the visitor's email app with the message pre-filled.
+The contact page has no form. It links straight to the phone number (`tel:`) and email (`mailto:`), with a copy-to-clipboard button for the address. If a form is wanted later, FormSubmit (formsubmit.co) works with a static site; the JavaScript already contains an AJAX handler for a `form[data-ajax]` element.
 
 ## Editing
 

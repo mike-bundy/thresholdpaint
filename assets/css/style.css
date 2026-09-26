@@ -680,3 +680,62 @@ body.nav-open { overflow: hidden; }
   .reveal, .reveal-l, .reveal-scale, .hero .w, .hero .lead, .hero .hero-actions, .hero .hero-trust, .hero .hero-card { opacity: 1; transform: none; }
   .fx-grain { display: none; }
 }
+
+/* --------------------------------------------------------------------------
+   Contact page 2.0
+   -------------------------------------------------------------------------- */
+.contact-hero .lead { max-width: 600px; }
+.action-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.action-tile {
+  position: relative; display: flex; flex-direction: column; gap: 14px; padding: clamp(26px, 3.5vw, 44px);
+  border-radius: 28px; background: var(--glass); border: 1px solid var(--line-2); overflow: hidden; isolation: isolate;
+  transition: transform 0.45s var(--ease), border-color 0.35s, background 0.35s;
+}
+.action-tile::before {
+  content: ""; position: absolute; inset: -1px; z-index: -1; opacity: 0; transition: opacity 0.45s;
+  background: radial-gradient(600px 300px at 0% 0%, rgba(255, 106, 43, 0.28), transparent 60%), radial-gradient(500px 300px at 100% 100%, rgba(76, 194, 255, 0.2), transparent 60%);
+}
+.action-tile:hover { transform: translateY(-6px); border-color: rgba(255, 255, 255, 0.3); background: var(--glass-2); }
+.action-tile:hover::before { opacity: 1; }
+.action-tile .tile-top { display: flex; align-items: center; gap: 14px; }
+.action-tile .card-icon { margin: 0; }
+.tile-kicker { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-2); }
+.tile-big { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; font-size: clamp(1.9rem, 4vw, 3.4rem); word-break: break-word; }
+.tile-big .sep { color: var(--accent); }
+.tile-email { font-size: clamp(1.4rem, 2.6vw, 2.2rem); }
+.tile-sub { color: var(--muted); font-size: 0.98rem; }
+.tile-arrow {
+  position: absolute; right: 22px; top: 22px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid var(--line-2); background: rgba(255, 255, 255, 0.05); transition: transform 0.45s var(--ease), background 0.3s;
+}
+.tile-arrow svg { width: 20px; height: 20px; }
+.action-tile:hover .tile-arrow { transform: rotate(-45deg); background: var(--accent); border-color: var(--accent); }
+.copy-btn { background: none; border: 0; padding: 0; color: var(--accent-2); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.copy-btn:hover { color: #fff; }
+.copy-btn.is-done { color: var(--mint); text-decoration: none; }
+@media (max-width: 760px) { .action-tiles { grid-template-columns: minmax(0, 1fr); } .tile-arrow { display: none; } }
+
+.info-grid .card p { margin-bottom: 0; }
+.area-pills { gap: 8px; }
+.area-pills .pill { padding: 6px 12px; font-size: 0.8rem; }
+.kv { list-style: none; padding: 0; margin: 12px 0 0; display: grid; }
+.kv li { display: flex; justify-content: space-between; gap: 14px; padding: 11px 0; border-top: 1px solid var(--line); font-size: 0.95rem; }
+.kv li:first-child { border-top: 0; }
+.kv span { color: var(--muted); }
+.kv strong { text-align: right; color: var(--ink); font-weight: 600; }
+.pdca-mini { height: 40px; width: auto; border-radius: 6px; margin-top: 18px; opacity: 0.9; }
+
+.ig-card {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(24px, 4vw, 56px); align-items: center;
+  padding: clamp(24px, 4vw, 48px); border-radius: 32px; background: linear-gradient(135deg, rgba(31, 58, 95, 0.55), rgba(12, 18, 34, 0.7));
+  border: 1px solid var(--line-2); overflow: hidden; position: relative; transition: border-color 0.3s;
+}
+.ig-card:hover { border-color: rgba(255, 255, 255, 0.28); }
+.ig-card h2 { font-size: clamp(1.7rem, 3.2vw, 2.6rem); }
+.ig-card .btn { margin-top: 8px; }
+.ig-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.ig-grid img { aspect-ratio: 1; object-fit: cover; width: 100%; border-radius: 14px; border: 1px solid var(--line); transition: transform 0.6s var(--ease); }
+.ig-card:hover .ig-grid img { transform: scale(1.03); }
+.ig-grid img:nth-child(2) { transition-delay: 0.04s; } .ig-grid img:nth-child(3) { transition-delay: 0.08s; }
+.ig-grid img:nth-child(4) { transition-delay: 0.12s; } .ig-grid img:nth-child(5) { transition-delay: 0.16s; } .ig-grid img:nth-child(6) { transition-delay: 0.2s; }
+@media (max-width: 860px) { .ig-card { grid-template-columns: minmax(0, 1fr); } }

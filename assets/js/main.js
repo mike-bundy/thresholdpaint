@@ -208,6 +208,17 @@
     });
   }
 
+  /* Copy-to-clipboard buttons */
+  $$("[data-copy]").forEach((btn) => {
+    btn.addEventListener("click", async (e) => {
+      e.preventDefault(); e.stopPropagation();
+      const orig = btn.textContent;
+      try { await navigator.clipboard.writeText(btn.dataset.copy); btn.textContent = "copied!"; btn.classList.add("is-done"); }
+      catch (err) { btn.textContent = btn.dataset.copy; }
+      setTimeout(() => { btn.textContent = orig; btn.classList.remove("is-done"); }, 2200);
+    });
+  });
+
   /* Current year */
   $$("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
 })();
